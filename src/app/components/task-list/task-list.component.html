@@ -1,0 +1,32 @@
+<div class="task-list">
+  <div class="task-list__title">
+    <div>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+      <div class="center">
+        <label class="label">
+          <input class="label__checkbox" type="checkbox" />
+          <span class="label__text">
+            <span class="label__check">
+              <i class="fa fa-check icon"></i>
+            </span>
+          </span>
+        </label>
+      </div>
+    </div>
+    <h4>{{ task.title | uppercase }}</h4>
+    <div class="task-list__btn">
+      <button class="task-list__edit">
+        <img src="../../../assets/icons/pen.svg" alt="" />
+      </button>
+      <button class="task-list__delete">
+        <img src="../../../assets/icons/trash.svg" alt="" class="trash" />
+      </button>
+    </div>
+  </div>
+  <div class="task-list__description">
+    <p>{{ task.description }}</p>
+  </div>
+</div>

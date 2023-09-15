@@ -1,0 +1,25 @@
+.add-task {
+
+margin-bottom: 50px;
+    &__body{
+        width: 800px;
+        display: flex;
+        flex-direction: column;
+    }
+    input,textarea {
+        padding: 10px;
+        border: 2px solid rgb(221, 150, 69);
+        margin-bottom: 2px;
+        font-size: 18px;
+        
+    }
+  &__btn {
+    margin-top: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+    background-color: rgba(231, 169, 54, 0.712);
+    &:hover{
+        background-color: rgba(206, 154, 57, 0.712);
+    }
+  }
+}
