@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ITask } from 'src/app/models/todo.model';
+import { ITask } from 'src/app/models/task.model';
+import { TaskService } from '../../service/task.service';
 
 @Component({
   selector: 'task-list',
@@ -7,6 +8,12 @@ import { ITask } from 'src/app/models/todo.model';
   styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent {
-  @Input() task: ITask;
+  //  @Input() task: ITask;
+  tasks: ITask[] = [];
 
+  constructor(private taskService: TaskService) {}
+
+  ngOnInit() {
+    this.tasks = this.taskService.getTasks();
+  }
 }

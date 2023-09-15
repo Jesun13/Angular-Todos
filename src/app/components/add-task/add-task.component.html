@@ -1,8 +1,9 @@
 <div class="add-task">
+  <form >
     <div class="add-task__body">
-      <input type="text" placeholder="Заголовок..." />
-      <textarea  style="resize: vertical; " name="" id=""  rows="5" placeholder="Описание..."></textarea>
+      <input [ngModelOptions]="{ standalone: true }" name="title" type="text" placeholder="Заголовок..."  [(ngModel)]="newTask.title"/>
+      <textarea [ngModelOptions]="{ standalone: true }" name="description" style="resize: vertical; " name="" id=""  rows="5" placeholder="Описание..." [(ngModel)]="newTask.description"></textarea>
     </div>
-    <button class="add-task__btn">Добавить задачу</button>
+    <button class="add-task__btn" (click)="addTask()">Добавить задачу</button>
+  </form>
   </div>
-  

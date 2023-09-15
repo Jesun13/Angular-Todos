@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ITask } from 'src/app/models/todo.model';
-import {tasks} from '../app/data'
+import { ITask } from 'src/app/models/task.model';
+
 
 @Component({
   selector: 'app-root',
@@ -10,5 +10,4 @@ import {tasks} from '../app/data'
 export class AppComponent {
   title = 'Список задач';
 
-  tasks: ITask[] = tasks
 }
