@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'modal-edit',
@@ -10,7 +11,7 @@ export class ModalEditComponent {
   @Output() closeModalEvent = new EventEmitter(); // Событие для закрытия модального окна
   @Output() saveTaskEvent = new EventEmitter(); // Событие для сохранения отредактированной задачи
   @Input() isModalOpen: boolean;
-
+  editForm: FormGroup;
   // Метод для закрытия модального окна
   closeModal() {
     this.isModalOpen = false;
@@ -19,7 +20,23 @@ export class ModalEditComponent {
 
   // Метод для сохранения отредактированной задачи
   saveTask() {
-    this.saveTaskEvent.emit(this.editedTask); // Отправка события о сохранении задачи
-    this.isModalOpen = false;
+    if (this.editForm.valid) {
+      this.saveTaskEvent.emit(this.editedTask);
+      this.isModalOpen = false;
+    }
   }
+
+  constructor(private fb: FormBuilder) {
+    this.editForm = this.fb.group({
+      title: ['', [Validators.required, Validators.minLength(2)]],
+      description: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
+
+  // get title() {
+  //   return this.editForm.get('title');
+  // }
+  // get description() {
+  //   return this.editForm.get('description');
+  // }
 }

@@ -1,9 +1,11 @@
 <div class="add-task">
-  <form >
+  <form [formGroup]="taskForm">
     <div class="add-task__body">
-      <input [ngModelOptions]="{ standalone: true }" name="title" type="text" placeholder="Заголовок..."  [(ngModel)]="newTask.title"/>
-      <textarea [ngModelOptions]="{ standalone: true }" name="description" style="resize: vertical; " name="" id=""  rows="5" placeholder="Описание..." [(ngModel)]="newTask.description"></textarea>
+      <input formControlName="title" type="text" placeholder="Заголовок..." />
+      <textarea formControlName="description" style="resize: vertical;" rows="5" placeholder="Описание..."></textarea>
     </div>
+    <p class="error-title" style="color: red; margin: 5px 0px; font-weight: 700;" *ngIf="description?.errors?.['minlength'] && description?.touched">Введите в "Описание" больше 6-ух символов </p>
+    <p class="error-title" style="color: red; margin: 5px 0px; font-weight: 700;" *ngIf="title?.errors?.['minlength'] && title?.touched">Введите в "Загаловок" больше 2-ух символов </p>
     <button class="add-task__btn" (click)="addTask()">Добавить задачу</button>
   </form>
-  </div>
+</div>

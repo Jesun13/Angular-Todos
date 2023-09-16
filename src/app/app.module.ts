@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskListComponent } from '../../src/app/components/task-list/task-list.component';
 import { AddTaskComponent } from '../../src/app/components/add-task/add-task.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalEditComponent } from './components/modal-edit/modal-edit.component';
 
 
@@ -20,7 +20,8 @@ import { ModalEditComponent } from './components/modal-edit/modal-edit.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
