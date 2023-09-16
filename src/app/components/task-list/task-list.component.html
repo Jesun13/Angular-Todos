@@ -18,7 +18,7 @@
     </div>
     <h4>{{ task.title | uppercase }}</h4>
     <div class="task-list__btn">
-      <button class="task-list__edit">
+      <button class="task-list__edit" (click)="openEditModal(task)">
         <img src="../../../assets/icons/pen.svg" alt="" />
       </button>
       <button class="task-list__delete">
@@ -29,4 +29,10 @@
   <div class="task-list__description">
     <p>{{ task.description }}</p>
   </div>
+  <modal-edit
+    [isModalOpen]="isModalOpen"
+    [editedTask]="editedTask"
+    (closeModalEvent)="closeEditModal()"
+    (saveTaskEvent)="saveEditedTask($event)"
+  ></modal-edit>
 </div>

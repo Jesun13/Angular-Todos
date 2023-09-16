@@ -1,0 +1,16 @@
+<div *ngIf="isModalOpen">
+<div class="overlay" (click)="closeModal()"></div>
+<div class="modal" >
+  <h2 class="modal__title">Редактировать задачу</h2>
+  <button class="modal__close" (click)="closeModal()">&#10006;</button>
+  <div class="edit">
+    <form class="edit-task">
+      <div class="edit-task__body">
+        <input name="title" type="text" class="edit-task__title" [(ngModel)]="editedTask.title" />
+        <textarea name="description" rows="8" class="edit-task__description" [(ngModel)]="editedTask.description"></textarea>
+      </div>
+      <button type="submit" class="edit-task__btn" (click)="saveTask()">Сохранить</button>
+    </form>
+  </div>
+</div>
+</div>
