@@ -41,4 +41,8 @@ export class TaskListComponent {
 
     this.closeEditModal();
   }
+  deleteTask(task: ITask) {
+    const index = this.tasks.findIndex((t) => t.id === task.id);
+    this.tasks.splice(index, 1);
+  }
 }
