@@ -7,6 +7,8 @@ import { AddTaskComponent } from '../../src/app/components/add-task/add-task.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalEditComponent } from './components/modal-edit/modal-edit.component';
 import { LocalStorageService } from './service/local-storage.service';
+import { Page404Component } from './components/page404/page404.component';
+import { FilterTasksComponent } from './components/filter-tasks/filter-tasks.component';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { LocalStorageService } from './service/local-storage.service';
     TaskListComponent,
     AddTaskComponent,
     ModalEditComponent,
+    Page404Component,
+    FilterTasksComponent,
   
     
   ],

@@ -1,0 +1,5 @@
+<div class="filter">
+    <button class="filter__button" [class.active]="selectedFilter === 'all'" (click)="setFilter('all')">Все</button>
+    <button class="filter__button" [class.active]="selectedFilter === 'active'" (click)="setFilter('active')">Активные</button>
+    <button class="filter__button" [class.active]="selectedFilter === 'completed'" (click)="setFilter('completed')">Выполненные</button>
+  </div>

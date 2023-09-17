@@ -1,0 +1,13 @@
+.filter {
+  margin-bottom: 10px;
+
+  &__button {
+    font-size: 18px;
+    padding: 10px;
+    background-color: rgba(231, 158, 22, 0.39);
+  }
+
+  .active {
+    background-color: rgb(231, 158, 22);
+  }
+}

@@ -16,7 +16,7 @@ export class TaskService {
   getTasks(): ITask[] {
     return this.tasks;
   }
-
+  
   addTask(task: ITask) {
     task.id = this.tasks.length + 1;
     this.tasks.push(task);

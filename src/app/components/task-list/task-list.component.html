@@ -1,5 +1,5 @@
-
-<div class="task-list" *ngFor="let task of tasks">
+<filter-tasks (filterChanged)="filterTasks($event)"></filter-tasks>
+<div class="task-list" *ngFor="let task of getFilteredTasks()" [ngClass]="{'completed': task.completed}">
   <div class="task-list__title">
     <div>
       <link
@@ -8,7 +8,7 @@
       />
       <div class="center">
         <label class="label">
-          <input class="label__checkbox" type="checkbox" />
+          <input class="label__checkbox" type="checkbox" [(ngModel)]="task.completed" (change)="updateTaskStatus(task)"/>
           <span class="label__text">
             <span class="label__check">
               <i class="fa fa-check icon"></i>
