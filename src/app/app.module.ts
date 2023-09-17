@@ -6,6 +6,7 @@ import { TaskListComponent } from '../../src/app/components/task-list/task-list.
 import { AddTaskComponent } from '../../src/app/components/add-task/add-task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalEditComponent } from './components/modal-edit/modal-edit.component';
+import { LocalStorageService } from './service/local-storage.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { ModalEditComponent } from './components/modal-edit/modal-edit.component
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

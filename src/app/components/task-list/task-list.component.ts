@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ITask } from 'src/app/models/task.model';
 import { TaskService } from '../../service/task.service';
+import { LocalStorageService } from 'src/app/service/local-storage.service';
 
 @Component({
   selector: 'task-list',
@@ -11,7 +12,7 @@ export class TaskListComponent {
   isModalOpen = false;
   tasks: ITask[] = [];
   editedTask: any = {};
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private localStorageService: LocalStorageService) {}
 
   ngOnInit() {
     this.tasks = this.taskService.getTasks();
@@ -39,6 +40,11 @@ export class TaskListComponent {
   }
   deleteTask(task: ITask) {
     const index = this.tasks.findIndex((t) => t.id === task.id);
-    this.tasks.splice(index, 1);
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
+      this.localStorageService.removeItem('tasks');
+    // Обновляем задачи в localStorage после удаления
+    this.localStorageService.setItem('tasks', this.tasks);
+    }
   }
 }
