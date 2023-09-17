@@ -1,4 +1,8 @@
+<add-task></add-task>
 <filter-tasks (filterChanged)="filterTasks($event)"></filter-tasks>
+<p class="no-tasks" *ngIf="getFilteredTasks().length === 0">
+  Задач нет
+</p>
 <div class="task-list" *ngFor="let task of getFilteredTasks()" [ngClass]="{'completed': task.completed}">
   <div class="task-list__title">
     <div>
@@ -30,7 +34,8 @@
   <div class="task-list__description">
     <p>{{ task.description }}</p>
   </div>
-  
+
+
   <modal-edit
     [isModalOpen]="isModalOpen"
     [editedTask]="editedTask"

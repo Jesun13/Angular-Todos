@@ -7,18 +7,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./modal-edit.component.scss'],
 })
 export class ModalEditComponent {
-  @Input() editedTask: any; // Входное свойство для передачи данных задачи для редактирования
-  @Output() closeModalEvent = new EventEmitter(); // Событие для закрытия модального окна
-  @Output() saveTaskEvent = new EventEmitter(); // Событие для сохранения отредактированной задачи
+  @Input() editedTask: any; 
+  @Output() closeModalEvent = new EventEmitter(); 
+  @Output() saveTaskEvent = new EventEmitter(); 
   @Input() isModalOpen: boolean;
   editForm: FormGroup;
-  // Метод для закрытия модального окна
+ 
   closeModal() {
     this.isModalOpen = false;
     this.closeModalEvent.emit(); // Отправка события о закрытии модального окна
   }
 
-  // Метод для сохранения отредактированной задачи
+  
   saveTask() {
     if (this.editForm.valid) {
       this.saveTaskEvent.emit(this.editedTask);
@@ -31,12 +31,7 @@ export class ModalEditComponent {
       title: ['', [Validators.required, Validators.minLength(2)]],
       description: ['', [Validators.required, Validators.minLength(6)]],
     });
+    
   }
 
-  // get title() {
-  //   return this.editForm.get('title');
-  // }
-  // get description() {
-  //   return this.editForm.get('description');
-  // }
 }
