@@ -12,6 +12,7 @@ export class TaskListComponent {
   isModalOpen = false;
   tasks: ITask[] = [];
   editedTask: any = {};
+  router: any;
   constructor(private taskService: TaskService, private localStorageService: LocalStorageService) {}
 
   ngOnInit() {
